@@ -1,0 +1,67 @@
+<div class="container">
+	<h1>Ticketlist</h1>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8 col-md-9">
+			<div class="blog">
+			    <h4>{{title}}</h4>
+			    <!--<script>
+                    text = {{data.tickets}};
+                    console.log(text);
+                </script>-->
+				{{# each data.tickets}}
+				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
+					<h2><a href="{{postUrl slug}}">{{title}}</a></h2>
+					<p class="lead text-muted">{{description}}
+							{{#if author.name.first}}by {{author.name.first}}{{/if}}
+					</p>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+		
+	</div>
+	{{>pagination}}
+</div>
+
+<div class="container">
+  		<div class="panel panel-primary">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Tickets</div>
+          <div class="panel-body">
+          </div>
+         <!-- Table -->
+         <table class="table  table-striped">
+             {{# each data.tickets}}
+                <tr>
+                <td>
+                 <div class=' col-md-1'>
+                     <span class="label label-info pull-right">{{status}}</span>
+                 </div>
+                  <a href='{{url}}'><b>{{title}}</b><a>
+                  <ul class="ticket-meta">
+ 	               <li>&nbsp;</li>
+                     <li>
+                         <h6>Status: </h6><a href="" rel="tag">{{status}}</a>
+                     </li>
+                     <li>
+                         <h6>Priority: </h6><a href="" rel="tag">{{priority}}</a>
+                     </li>
+                     <li>
+                         <h6>Category: </h6><a href="" rel="tag">{{category}}</a>
+                     </li>
+                     <li>
+                     <h6>Last Updated: </h6>
+                     <abbr class="last-updated">{{createdAt}}</abbr>
+ 	                </li>
+ 			      </ul>
+                </td>
+                </tr>
+             {{/each}}
+         </table>
+         
+         <div class="panel-footer"></div>
+         </div>
+          
+ 	</div>

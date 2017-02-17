@@ -1,0 +1,81 @@
+{{!< default}}
+
+<!------------------------------------------------------------------------------------------------------ Wolf:
+<div class="container">
+	<div class="container">
+           <!--<img src="/images/HTML5_logo.png" class="img-responsive zz-hero-logos-html">
+           <img src="/images/css3.png" class="img-responsive zz-hero-logos-css">
+         
+        <img src="/images/wolf.jpeg" class="img-responsive center-block zz-img-background zz-voffset-90">
+        
+        <img src="/images/hero-image.jpeg" class="">
+    </div>
+------------------------------------------------------------------------------------------------------------->
+
+<!----------------------------------------------------------------------------------Hero-Image ohne Cloudinary
+   <picture class="bg">
+    <source
+        media="(min-width: 600px)"
+        srcset="http://res.cloudinary.com/diys13w4u/image/upload/c_fill,ar_2:1,g_auto,f_auto,q_70,w_600/2hero-image_ykh28e.jpg 600w,
+                http://res.cloudinary.com/diys13w4u/image/upload/c_fill,ar_2:1,g_auto,f_auto,q_70,w_1200/2hero-image_ykh28e.jpg 1200w"
+        sizes="100vw"
+    />
+    <img
+       srcset="http://res.cloudinary.com/diys13w4u/image/upload/f_auto,q_70,w_400/2hero-image_ykh28e.jpg 400w,
+              http://res.cloudinary.com/diys13w4u/image/upload/f_auto,q_70,w_800/2hero-image_ykh28e.jpg 800w"
+        src="http://res.cloudinary.com/diys13w4u/image/upload/f_auto,q_70,w_400/2hero-image_ykh28e.jpg"
+        alt="Hero Image"
+        sizes="100vw"
+    />
+</picture>
+<!----------------------------------------------------------------------------------------------------------->
+
+<!----------------------------------------------------------------------------------Hero-Image mit Cloudinary
+ToDo:
+  ToDo fuer morgen. If einbauen und nur das Hero anzeigen, welches gerade als aktives gesetzt ist.
+  -->
+
+{{# each data.heroes}}
+<div class="bg">
+   <picture>
+    <source
+        media="(min-width: 600px)"
+        srcset="{{cloudinaryUrl image crop='fill' aspect_ratio='2.2' gravity='auto' quality=70 fetch_format='auto' width='600'}} 600w,
+                {{cloudinaryUrl image crop='fill' aspect_ratio='2.2' gravity='auto' quality=70 fetch_format='auto' width='1200'}} 1200w"
+        sizes="100vw"
+    />
+    <img
+       srcset="{{cloudinaryUrl image crop='fill' aspect_ratio='2.2' gravity='auto' quality=70 fetch_format='auto' width='400'}} 400w,
+              {{cloudinaryUrl image crop='fill' aspect_ratio='2.2' gravity='auto' quality=70 fetch_format='auto' width='800'}} 800w"
+        src="{{cloudinaryUrl image crop='fill' aspect_ratio='2.2' gravity='auto' quality=70 fetch_format='auto' width='400'}}"
+        alt="Hero Image"
+        sizes="100vw"
+    />
+    </picture>
+</div>
+{{/each}}
+<!----------------------------------------------------------------------------------------------------------->
+
+<div class="container hero-content">
+        <h1>Smawandi</h1>
+        <h3>Hier steht die Tagline</h3>
+</div>
+<div class="container zz-under-hero">
+    <div class="row">
+        <div class="col-md-4">
+            <label>
+                <h4>Service 1</h4>
+            </label>
+        </div>
+        <div class="col-md-4">
+            <label>
+                <h4>Service 2</h4>
+            </label>
+        </div>
+        <div class="col-md-4">
+            <label>
+                <h4>Service 3</h4>
+            </label>
+        </div>
+    </div>
+</div>
